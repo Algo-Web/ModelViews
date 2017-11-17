@@ -1,4 +1,4 @@
-# POData-Laravel Contributor's Guide
+# ModelViews Contributor's Guide
 
 Contribution policies, workflows, etc
 
