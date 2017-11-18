@@ -2,7 +2,7 @@
     "name": "algo-web/ModelViews",
     "autoload": {
         "psr-4": {
-            "Algo-web\\ModelViews\\": "src/"
+            "AlgoWeb\\ModelViews\\": "src/"
         }
     },
     "require": {
@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Algo-web\\ModelViews\\Tests\\": "tests/"
+            "AlgoWeb\\ModelViews\\Tests\\": "tests/"
         }
     }
 }
