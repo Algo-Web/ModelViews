@@ -1,5 +1,5 @@
 <?php
-namespace Algo-web\ModelViews\Database;
+namespace AlgoWeb\ModelViews\Database;
 
 use Illuminate\Database\Connection as BaseConnection;
 use Illuminate\Database\Eloquent\Model;
