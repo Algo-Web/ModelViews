@@ -1,11 +1,11 @@
 <?php
 
-namespace Algo-web\ModelViews\Providers;
+namespace AlgoWeb\ModelViews\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Algo-web\ModelViews\Database\MysqlVirtualConnection;
+use AlgoWeb\ModelViews\Database\MysqlVirtualConnection;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\Connectors\MySqlConnector;
 
