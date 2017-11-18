@@ -2,12 +2,12 @@
 
 namespace AlgoWeb\ModelViews\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use AlgoWeb\ModelViews\Database\MysqlVirtualConnection;
+use Illuminate\Database\Connectors\MySqlConnector;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use AlgoWeb\ModelViews\Database\MysqlVirtualConnection;
-use Illuminate\Database\MySqlConnection;
-use Illuminate\Database\Connectors\MySqlConnector;
+use Illuminate\Support\ServiceProvider;
 
 class VirtualModelViewProvider extends ServiceProvider
 {
@@ -18,18 +18,13 @@ class VirtualModelViewProvider extends ServiceProvider
      */
     public function register()
     {
-
-        $this->app->singleton('db.connection.virtual', function ($app, $parameters)
-        {
+        $this->app->singleton('db.connection.virtual', function ($app, $parameters) {
             list($connection, $database, $prefix, $config) = $parameters;
             return new MysqlVirtualConnection($connection, $database, $prefix, $config);
         });
 
-        $this->app->singleton('db.connector.virtual', function ($app, $parameters)
-        {
+        $this->app->singleton('db.connector.virtual', function ($app, $parameters) {
             return new MySqlConnector();
         });
-
     }
 }
-
