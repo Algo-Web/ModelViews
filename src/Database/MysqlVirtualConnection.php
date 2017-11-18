@@ -1,5 +1,5 @@
 <?php
-namespace Algo-web\ModelViews\Database;
+namespace AlgoWeb\ModelViews\Database;
 
 use Illuminate\Database\Schema\MySqlBuilder;
 use Illuminate\Database\Query\Processors\MySqlProcessor;
