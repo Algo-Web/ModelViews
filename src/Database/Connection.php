@@ -14,14 +14,14 @@ class Connection extends BaseConnection
     {
         self::$classes[] = $ModelOfTable;
         $currentISchemaTables = 0;
-        if(array_key_exists("tables",self::$information_schema)){
-            $currentISchemaTables = count(self::$information_schema["tables"]);
+        if (array_key_exists('tables', self::$information_schema)) {
+            $currentISchemaTables = count(self::$information_schema['tables']);
         } else {
-            self::$information_schema["tables"] = [];
+            self::$information_schema['tables'] = [];
         }
-        self::$information_schema["tables"][$currentISchemaTables]["Model"] = $ModelOfTable;
-        self::$information_schema["tables"][$currentISchemaTables]["TABLE_NAME"] = $ModelOfTable::getTableName();  
-        self::$information_schema["tables"][$currentISchemaTables]["TABLE_SCHEMA"] = \Config::get('database.connections.'.\Config::get('database.default').'.database');
+        self::$information_schema['tables'][$currentISchemaTables]['Model'] = $ModelOfTable;
+        self::$information_schema['tables'][$currentISchemaTables]['TABLE_NAME'] = $ModelOfTable::getTableName();
+        self::$information_schema['tables'][$currentISchemaTables]['TABLE_SCHEMA'] = \Config::get('database.connections.'.\Config::get('database.default').'.database');
     }
 
     protected $normalizer;
@@ -48,24 +48,24 @@ class Connection extends BaseConnection
     {
 
 //dd(self::$information_schema);
-dd(self::getSQL($query,$bindings));
+        dd(self::getSQL($query, $bindings));
         $records = parent::select($query, $bindings);
-dd($records);
+        dd($records);
         return $records;
     }
 
-    private function ProcessSQL($query,$results){
-    
+    private function ProcessSQL($query, $results)
+    {
     }
 
     private static function getSQL($sql, $bindings)
     {
         $needle = '?';
-        foreach ($bindings as $replace){
+        foreach ($bindings as $replace) {
             $pos = strpos($sql, $needle);
             if ($pos !== false) {
-                if (gettype($replace) === "string") {
-                     $replace = ' "'.addslashes($replace).'" ';
+                if (gettype($replace) === 'string') {
+                    $replace = ' "'.addslashes($replace).'" ';
                 }
                 $sql = substr_replace($sql, $replace, $pos, strlen($needle));
             }
